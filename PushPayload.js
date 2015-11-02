@@ -33,11 +33,11 @@ class PushPayload extends Component {
     return (
         <View style={{
               flex: 1,
-              paddingTop: 80,
+              paddingTop: 280,
               justifyContent: 'flex-start',
               alignItems: 'center'
            }}>
-           <Text> Is the Paylooad workmng ?</Text>
+           <Text> The Details of the Git Activity is shown here. You can click on above to get back to the list view</Text>
         </View>   
       );
   }
