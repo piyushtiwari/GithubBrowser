@@ -9,7 +9,8 @@ var {
   View,
   Component,
   StyleSheet,
-  TabBarIOS
+  TabBarIOS,
+  NavigatorIOS
 } = React;
 
 
@@ -33,7 +34,15 @@ class AppContainer extends Component {
               style={styles.tabIcon}
               onPress={()=>this.setState({selectedTab:"feed"})}
             >
-              <Feed />
+              <NavigatorIOS
+                  style={{
+                    flex: 1
+                  }}
+                  initialRoute={{
+                    component: Feed,
+                    title: 'Feed'
+                  }}
+                  />
               
             </TabBarIOS.Item>
 

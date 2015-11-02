@@ -3,6 +3,7 @@
 var React = require('react-native');
 var buffer = require('buffer');
 var moment = require('moment');
+var PushPayload = require('./PushPayload');
 
 var {
   Text,
@@ -10,7 +11,8 @@ var {
   Component,
   ListView,
   ActivityIndicatorIOS,
-  Image
+  Image,
+  TouchableHighlight
 } = React;
 
 
@@ -57,10 +59,26 @@ class Feed extends Component {
     })
   }
 
+  pressRow(rowData){
+    this.props.navigator.push({
+      title: 'Push Event',
+      component: PushPayload,
+      passProps: {
+        pushEvent: rowData
+      }
+    });
+    console.log(rowData)
+  }
 
   renderRow(rowData){
     console.log(rowData.actor.id);
-    return <View style={{
+    return( 
+      <TouchableHighlight
+        onPress={()=> this.pressRow(rowData)}
+        underlayColor='#ddd' >
+
+
+        <View style={{
                 flex: 1,
                 flexDirection: 'row',
                 padding: 20,
@@ -100,6 +118,8 @@ class Feed extends Component {
                     </Text>
                   </View>
               </View>
+      </TouchableHighlight>
+    )
   }
 
 
