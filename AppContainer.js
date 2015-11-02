@@ -3,6 +3,7 @@
 var React = require('react-native');
 var buffer = require('buffer');
 var Feed = require('./Feed');
+var Search = require('./Search');
 
 var {
   Text,
@@ -10,7 +11,8 @@ var {
   Component,
   StyleSheet,
   TabBarIOS,
-  NavigatorIOS
+  NavigatorIOS,
+  TouchableHighlight
 } = React;
 
 
@@ -25,6 +27,8 @@ class AppContainer extends Component {
 
 	render() {
       return(
+
+          
         
           <TabBarIOS style={styles.container}>
             <TabBarIOS.Item 
@@ -53,7 +57,15 @@ class AppContainer extends Component {
               style={styles.tabIcon}
               onPress={()=>this.setState({selectedTab:"search"})}
             >
-                <Feed />
+                <NavigatorIOS
+                  style={{
+                    flex: 1
+                  }}
+                  initialRoute={{
+                    component: Search,
+                    title: 'Search'
+                  }}
+                  />
               
             </TabBarIOS.Item>
 

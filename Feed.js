@@ -67,7 +67,7 @@ class Feed extends Component {
         pushEvent: rowData
       }
     });
-    console.log(rowData)
+    //console.log(rowData)
   }
 
   renderRow(rowData){
@@ -130,15 +130,17 @@ class Feed extends Component {
         return(
             <View style={{
                 flex: 1,
-                justifyContent: 'center'
+                justifyContent: 'center',
+                alignItems: 'center'
               }}>
                 <ActivityIndicatorIOS
                   size="large"
-                  animating={true} />
+                  animating={true}  
+                  />
             </View>
           )
-
       }
+
       return(
           <View style={{
             flex: 1,
