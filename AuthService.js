@@ -76,9 +76,6 @@ class AuthService{
 
 			//this.setState({success: true});
 
-
-			cb({success: true})
-
 			AsyncStorage.multiSet([
 					[authKey, encodedAuth],
 					[userKey, JSON.stringify(results) ]
@@ -90,6 +87,11 @@ class AuthService{
 					return cb({success: true});
 				});
 
+
+			cb({success: true})
+
+			
+
 			console.log(results);
 			
 			
@@ -100,9 +102,9 @@ class AuthService{
 			//this.setState(err);
 			return cb(err);
 		})
-		.finally( ()=>{
-			this.setState({showProgress:false});
-		})
+		// .finally( ()=>{
+		// 	this.setState({showProgress:false});
+		// })
 
 	}
 }
